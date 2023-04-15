@@ -8,7 +8,7 @@ todo's:
 - [ ] type check is its own step
 - [ ] everything in the repo is part of a lint command
 - [ ] setup strict typescript linting rules
-- [ ] add dev container
+- [x] add dev container
 - [ ] add example server
 - [ ] add example database
 - [ ] add podman in devcontainer to run e2e tests in container
