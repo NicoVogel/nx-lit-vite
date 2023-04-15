@@ -2,7 +2,7 @@
 
 todo's:
 
-- [ ] setup playwright component tests
+- [x] setup playwright component tests
 - [ ] add storybook with docs
 - [ ] add example app
 - [ ] type check is its own step

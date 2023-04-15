@@ -19,11 +19,10 @@
       "dependsOn": ["build"]
     },
     "test": {
-      "executor": "@nrwl/vite:test",
+      "executor": "@mands/nx-playwright:playwright-executor",
       "outputs": ["coverage/libs/core"],
       "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/core"
+        "e2eFolder": "libs/core"
       }
     },
     "lint": {
