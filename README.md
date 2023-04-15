@@ -16,3 +16,5 @@ todo's:
 - [ ] add github workflow
 - [ ] configure each library to be an external dependency
 - [ ] configure project to output a package.json with correct dependencies based on compilation
+- [ ] use node 16 module resolution
+- [ ] add coverage to playwright
