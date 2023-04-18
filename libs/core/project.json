@@ -11,6 +11,12 @@
         "outputPath": "dist/libs/core"
       }
     },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit -p libs/core/tsconfig.lib.json"
+      }
+    },
     "publish": {
       "executor": "nx:run-commands",
       "options": {

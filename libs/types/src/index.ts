@@ -1,3 +1,3 @@
 /// <reference types="vite/client" />
 
-import './scss'
+import './scss.d'

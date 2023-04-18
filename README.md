@@ -5,7 +5,7 @@ todo's:
 - [x] setup playwright component tests
 - [ ] add storybook with docs
 - [ ] add example app
-- [ ] type check is its own step
+- [x] type check is its own step
 - [ ] everything in the repo is part of a lint command
 - [ ] setup strict typescript linting rules
 - [x] add dev container
