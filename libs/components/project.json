@@ -22,12 +22,9 @@
       "dependsOn": ["build"]
     },
     "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/components"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/components"
-      }
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/coverage/libs/components"],
+      "options": {}
     },
     "lint": {
       "executor": "@nx/linter:eslint",
