@@ -1,12 +1,21 @@
 {
-  "extends": ["../../.eslintrc.json"],
+  "extends": [
+    "../../.eslintrc.json"
+  ],
   "parserOptions": {
-    "project": ["libs/components/tsconfig.*?.json"]
+    "project": [
+      "libs/components/tsconfig.*?.json",
+      "libs/components/tsconfig.storybook.json"
+    ]
   },
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": [
+    "!**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.json"],
+      "files": [
+        "*.json"
+      ],
       "parser": "jsonc-eslint-parser",
       "rules": {
         "@nx/dependency-checks": "error"
