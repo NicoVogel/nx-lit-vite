@@ -17,10 +17,18 @@
       "inputs": ["default", "^production"]
     },
     "lint": {
+      "dependsOn": ["stylelint"],
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore"
+      ]
+    },
+    "stylelint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.stylelintrc.json",
+        "{workspaceRoot}/.stylelintignore"
       ]
     }
   },

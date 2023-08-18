@@ -2,7 +2,10 @@
   "name": "@nx-lit-vite/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "lint-non-code-files": "prettier --check \"**/*.{json,yaml,yml,md}\"",
+    "format-non-code-files": "prettier --write \"**/*.{json,yaml,yml,md}\""
+  },
   "private": true,
   "devDependencies": {
     "@nx/eslint-plugin": "16.7.1",
@@ -18,8 +21,12 @@
     "eslint": "~8.46.0",
     "eslint-config-prettier": "8.1.0",
     "nx": "16.7.1",
+    "nx-stylelint": "^15.0.0",
     "prettier": "^2.6.2",
     "sass": "^1.66.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-prettier": "^3.0.0",
     "tslib": "^2.6.1",
     "typescript": "~5.1.3",
     "verdaccio": "^5.0.4",

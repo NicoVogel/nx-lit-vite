@@ -37,6 +37,18 @@
           "libs/components/**/*.ts",
           "libs/components/package.json"
         ]
+      },
+      "configurations": {
+        "format": {
+          "fix": true
+        }
+      }
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/components/**/*.scss"]
       }
     }
   },
