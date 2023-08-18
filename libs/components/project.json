@@ -49,11 +49,6 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/components/**/*.scss"]
-      },
-      "configurations": {
-        "format": {
-          "fix": true
-        }
       }
     }
   },
