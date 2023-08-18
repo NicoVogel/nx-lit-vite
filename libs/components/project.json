@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/components"
       }
@@ -21,15 +19,11 @@
     },
     "publish": {
       "command": "node tools/scripts/publish.mjs components {args.ver} {args.tag}",
-      "dependsOn": [
-        "build"
-      ]
+      "dependsOn": ["build"]
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": [
-        "coverage/libs/components"
-      ],
+      "outputs": ["coverage/libs/components"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/components"
@@ -37,9 +31,7 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "libs/components/**/*.ts",
@@ -54,13 +46,9 @@
     },
     "stylelint": {
       "executor": "nx-stylelint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/components/**/*.scss"
-        ]
+        "lintFilePatterns": ["libs/components/**/*.scss"]
       }
     },
     "storybook": {
@@ -77,9 +65,7 @@
     },
     "build-storybook": {
       "executor": "@nx/storybook:build",
-      "outputs": [
-        "{options.outputDir}"
-      ],
+      "outputs": ["{options.outputDir}"],
       "options": {
         "outputDir": "dist/storybook/components",
         "configDir": "libs/components/.storybook"
@@ -88,12 +74,6 @@
         "ci": {
           "quiet": true
         }
-      }
-    },
-    "test-storybook": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "test-storybook -c libs/components/.storybook --url=http://localhost:4400"
       }
     }
   },

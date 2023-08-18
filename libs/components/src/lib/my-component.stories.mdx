@@ -1,0 +1,48 @@
+import {html} from 'lit';
+import {Story, Meta, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {spreadProps} from '@open-wc/lit-helpers';
+import './my-component';
+
+<Meta
+  title="Components/MyComponent"
+  argTypes={{
+    hint: {
+      control: 'text',
+      description: 'hint text',
+      table: {
+        defaultValue: 'Some hint',
+      },
+    },
+    count: {
+      control: 'number',
+      description: 'start value',
+      table: {
+        defaultValue: 0,
+      },
+    },
+  }}
+/>
+
+# MyComponent
+
+<Canvas>
+  <Story
+    name="MyComponent"
+    args={{
+      hint: 'Test',
+      count: 1,
+    }}
+  >
+    {options => html` <my-component ${spreadProps(options)}> </my-component> `}
+  </Story>
+</Canvas>
+
+<ArgsTable story="MyComponent" />
+
+## fixed values
+
+<Canvas>
+  <Story name="MyComponentFixed">
+    {html` <my-component hint="Fixed value" count="42"> </my-component> `}
+  </Story>
+</Canvas>

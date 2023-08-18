@@ -144,6 +144,13 @@
       "rules": {
         "no-console": "error"
       }
+    },
+    {
+      "files": ["*.mdx"],
+      "extends": ["plugin:mdx/recommended"],
+      "settings": {
+        "mdx/code-blocks": true
+      }
     }
   ]
 }
