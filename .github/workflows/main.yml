@@ -29,5 +29,51 @@ jobs:
         uses: nrwl/nx-set-shas@177b48373c6dc583ce0d9257ffb484bdd232fedf # v3.0.2
       - name: Lint other files 📝
         run: |
-          pnpm exec nx affected:lint --configuration=ci --parallel=3
+          pnpm exec nx affected:lint \
+          --configuration=ci \
+          --parallel=3
           pnpm lint-non-code-files
+
+  build:
+    name: Build 🏗️
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm ⚙️
+        run: |
+          npm i -g pnpm@8.6.12
+      - name: Install 📦
+        run: |
+          pnpm install
+      - name: Nx Affected 🐋
+        uses: nrwl/nx-set-shas@177b48373c6dc583ce0d9257ffb484bdd232fedf # v3.0.2
+      - name: Build 🏗️
+        run: |
+          pnpm exec nx affected:build \
+          --configuration=production \
+          --parallel=3
+
+  typechecking:
+    name: Typechecking ✔️
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm ⚙️
+        run: |
+          npm i -g pnpm@8.6.12
+      - name: Install 📦
+        run: |
+          pnpm install
+      - name: Nx Affected 🐋
+        uses: nrwl/nx-set-shas@177b48373c6dc583ce0d9257ffb484bdd232fedf # v3.0.2
+      - name: Typecheck ✔️
+        run: |
+          pnpm exec nx affected \
+          --target typecheck \
+          --parallel=3
