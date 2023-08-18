@@ -1,7 +1,14 @@
 {
   "name": "@myorg/components",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "lit": "2.8.0"
+  },
+  "devDependencies": {
+    "vite": "4.4.9",
+    "@nx/vite": "16.7.1",
+    "vite-plugin-dts": "3.5.2"
+  },
   "main": "./index.js",
   "module": "./index.mjs",
   "typings": "./index.d.ts"
