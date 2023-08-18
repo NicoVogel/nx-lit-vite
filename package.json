@@ -2,7 +2,10 @@
   "name": "@nx-lit-vite/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "lint-non-code-files": "prettier --check \"**/*.{json,yaml,yml,md}\"",
+    "format-non-code-files": "prettier --write \"**/*.{json,yaml,yml,md}\""
+  },
   "private": true,
   "devDependencies": {
     "@nx/eslint-plugin": "16.7.1",
