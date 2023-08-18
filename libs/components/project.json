@@ -11,6 +11,12 @@
         "outputPath": "dist/libs/components"
       }
     },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit --project libs/components/tsconfig.lib.json"
+      }
+    },
     "publish": {
       "command": "node tools/scripts/publish.mjs components {args.ver} {args.tag}",
       "dependsOn": ["build"]
