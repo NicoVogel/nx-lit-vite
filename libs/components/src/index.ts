@@ -1,1 +1,2 @@
-export * from './lib/components';
+import '@myorg/types'
+export * from './lib/my-component';
