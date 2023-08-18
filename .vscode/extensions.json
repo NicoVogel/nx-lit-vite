@@ -1,3 +1,8 @@
 {
-  "recommendations": ["usernamehw.errorlens"]
+  "recommendations": [
+    "usernamehw.errorlens",
+    "eamodio.gitlens",
+    "yoavbls.pretty-ts-errors",
+    "mhutchie.git-graph"
+  ]
 }

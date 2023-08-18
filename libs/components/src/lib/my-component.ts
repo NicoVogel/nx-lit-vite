@@ -1,8 +1,9 @@
+import {LitElement, html, unsafeCSS} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
+
 // Must use ?inline because ?inline prevents vite from inserting the styles in
 // a <style> the <head>
 import styles from './my-component.scss?inline';
-import { LitElement, html, unsafeCSS } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
 
 /**
  * An example element.
@@ -20,13 +21,13 @@ export class MyComponent extends LitElement {
    * Copy for the read the docs hint.
    */
   @property()
-  hint = 'Some hint'
+  hint = 'Some hint';
 
   /**
    * The number of times the button has been clicked.
    */
-  @property({ type: Number })
-  count = 0
+  @property({type: Number})
+  count = 0;
 
   override render() {
     return html`
@@ -37,16 +38,16 @@ export class MyComponent extends LitElement {
         </button>
       </div>
       <p class="hint">${this.hint}</p>
-    `
+    `;
   }
 
   private _onClick() {
-    this.count++
+    this.count++;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-component': MyComponent
+    'my-component': MyComponent;
   }
 }
