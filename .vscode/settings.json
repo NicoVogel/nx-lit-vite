@@ -33,4 +33,7 @@
     "source.fixAll.eslint": true
   },
   "stylelint.validate": ["css", "scss"],
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
 }
