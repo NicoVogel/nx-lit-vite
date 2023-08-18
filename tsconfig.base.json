@@ -10,12 +10,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@myorg/core": ["libs/core/src/index.ts"],
+      "@myorg/components": ["libs/components/src/index.ts"],
       "@myorg/types": ["libs/types/src/index.ts"]
     }
   },

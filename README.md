@@ -1,8 +1,8 @@
-# nx-lit-vite
+# NxLitVite
 
-todo's:
+todos:
 
-- [x] setup playwright component tests
+- [ ] setup playwright component tests
 - [ ] add storybook with docs
 - [ ] add example app
 - [x] type check is its own step
