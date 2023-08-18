@@ -6,7 +6,7 @@ todos:
 - [ ] add storybook with docs
 - [ ] add example app
 - [x] type check is its own step
-- [ ] everything in the repo is part of a lint command
+- [x] everything in the repo is part of a lint command
 - [ ] setup strict typescript linting rules
 - [x] add dev container
 - [ ] add example server
