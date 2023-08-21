@@ -23,7 +23,8 @@
         "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
         "stylelint.vscode-stylelint",
-        "EditorConfig.EditorConfig"
+        "EditorConfig.EditorConfig",
+        "unifiedjs.vscode-mdx"
       ]
     }
   },
