@@ -22,11 +22,11 @@
       "dependsOn": ["build"]
     },
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "@angular-devkit/build-angular:karma",
       "outputs": ["coverage/libs/components"],
       "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/components"
+        "tsConfig": "libs/components/tsconfig.spec.json",
+        "karmaConfig": "libs/components/karma.config.cjs"
       }
     },
     "lint": {
