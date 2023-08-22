@@ -20,6 +20,8 @@ jobs:
   backstop:
     name: Build target and reference and test
     runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
     steps:
       - name: Checkout Reference 🛎️
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
