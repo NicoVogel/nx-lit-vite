@@ -1,0 +1,16 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "parserOptions": {
+    "project": ["apps/visual-regression/tsconfig.*?.json"]
+  },
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/dependency-checks": "error"
+      }
+    }
+  ]
+}

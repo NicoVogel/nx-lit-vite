@@ -1,0 +1,48 @@
+{
+  "v": 3,
+  "stories": {
+    "components-mycomponent--docs": {
+      "id": "components-mycomponent--docs",
+      "title": "Components/MyComponent",
+      "name": "Docs",
+      "importPath": "./libs/components/src/lib/my-component.stories.mdx",
+      "tags": ["stories-mdx", "docs"],
+      "storiesImports": [],
+      "kind": "Components/MyComponent",
+      "story": "Docs",
+      "parameters": {
+        "__id": "components-mycomponent--docs",
+        "docsOnly": true,
+        "fileName": "./libs/components/src/lib/my-component.stories.mdx"
+      }
+    },
+    "components-mycomponent--my-component": {
+      "id": "components-mycomponent--my-component",
+      "title": "Components/MyComponent",
+      "name": "MyComponent",
+      "importPath": "./libs/components/src/lib/my-component.stories.mdx",
+      "tags": ["stories-mdx", "story"],
+      "kind": "Components/MyComponent",
+      "story": "MyComponent",
+      "parameters": {
+        "__id": "components-mycomponent--my-component",
+        "docsOnly": false,
+        "fileName": "./libs/components/src/lib/my-component.stories.mdx"
+      }
+    },
+    "components-mycomponent--my-component-fixed": {
+      "id": "components-mycomponent--my-component-fixed",
+      "title": "Components/MyComponent",
+      "name": "MyComponentFixed",
+      "importPath": "./libs/components/src/lib/my-component.stories.mdx",
+      "tags": ["stories-mdx", "story"],
+      "kind": "Components/MyComponent",
+      "story": "MyComponentFixed",
+      "parameters": {
+        "__id": "components-mycomponent--my-component-fixed",
+        "docsOnly": false,
+        "fileName": "./libs/components/src/lib/my-component.stories.mdx"
+      }
+    }
+  }
+}

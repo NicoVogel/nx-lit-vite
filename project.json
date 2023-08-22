@@ -34,6 +34,22 @@
           "quiet": true
         }
       }
+    },
+    "vr-reference": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "command": "pnpm exec nx build-storybook @nx-lit-vite/source --configuration=ci --outputDir=/tmp/reference --skip-nx-cache",
+        "outputDir": "tmp/reference"
+      }
+    },
+    "vr-changed": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "command": "pnpm exec nx build-storybook @nx-lit-vite/source --configuration=ci --outputDir=/tmp/changed --skip-nx-cache",
+        "outputDir": "tmp/changed"
+      }
     }
   }
 }

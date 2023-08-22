@@ -1,0 +1,54 @@
+{
+  "name": "visual-regression",
+  "$schema": "../node_modules/nx/schema/project-schema.json",
+  "sourceRoot": "apps/visual-regression/src",
+  "projectType": "application",
+  "implicitDependencies": ["@nx-lit-vite/source"],
+  "targets": {
+    "reference": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm reference",
+        "cwd": "apps/visual-regression"
+      },
+      "dependsOn": ["^vr-reference"]
+    },
+    "check-changed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm check-changed",
+        "cwd": "apps/visual-regression"
+      },
+      "dependsOn": ["^vr-changed"]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm serve-result",
+        "cwd": "apps/visual-regression"
+      }
+    },
+    "extract-stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cp dist/storybook/@nx-lit-vite/source/stories.json apps/visual-regression/src/assets/stories.json && pnpm format-non-code-files"
+      },
+      "dependsOn": ["^build-storybook"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/visual-regression/**/*.ts",
+          "apps/visual-regression/package.json"
+        ]
+      },
+      "configurations": {
+        "format": {
+          "fix": true
+        }
+      }
+    }
+  }
+}
