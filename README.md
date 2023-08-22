@@ -17,3 +17,5 @@ todos:
 - [ ] configure project to output a package.json with correct dependencies based on compilation
 - [x] use node 16 module resolution
 - [ ] add coverage to playwright
+- [x] log commit hash on startup
+- [ ] introduce analyzer for build output size
