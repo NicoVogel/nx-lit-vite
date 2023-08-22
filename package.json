@@ -8,6 +8,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.0",
     "@geometricpanda/storybook-addon-badges": "^2.0.0",
     "@nx/eslint-plugin": "16.7.1",
     "@nx/js": "^16.7.1",
