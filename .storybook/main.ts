@@ -4,6 +4,9 @@ const config: StorybookConfig = {
   stories: ['../libs/**/*.stories.mdx'],
   addons: ['@storybook/addon-essentials'],
   framework: '@storybook/web-components-vite',
+  features: {
+    buildStoriesJson: true,
+  },
 };
 
 export default config;

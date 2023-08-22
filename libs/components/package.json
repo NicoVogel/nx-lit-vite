@@ -5,8 +5,9 @@
     "lit": "2.8.0"
   },
   "devDependencies": {
-    "vite": "4.4.9",
     "@nx/vite": "16.7.1",
+    "path": "0.12.7",
+    "vite": "4.4.9",
     "vite-plugin-dts": "3.5.2"
   },
   "main": "./index.js",

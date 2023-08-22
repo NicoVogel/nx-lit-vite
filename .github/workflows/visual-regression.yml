@@ -1,0 +1,53 @@
+name: Visual Regression
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+concurrency:
+  group: Visual Regression-${{ github.event.number }}
+  cancel-in-progress: true
+
+env:
+  report_filename: backstop-report-pr-${{ github.event.number }}-run-${{ github.run_id }}.tar.gz
+
+permissions:
+  pull-requests: write # commenting
+  contents: read
+  checks: write # junit-report
+
+jobs:
+  backstop:
+    name: Build target and reference and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Reference 🛎️
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.base_ref }}
+      - name: Setup pnpm ⚙️
+        run: |
+          npm i -g pnpm@8.6.12
+      - name: Install for Reference 📦
+        run: |
+          pnpm install
+      - name: Visual Regression Reference 📖
+        run: |
+          pnpm exec nx reference visual-regression
+      - name: Checkout Target 🛎️
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Install for Target📦
+        run: |
+          pnpm install
+      - name: Visual Regression Target 📖
+        run: |
+          pnpm exec nx check-changed visual-regression
+      - name: Post report
+        uses: mikepenz/action-junit-report@150e2f992e4fad1379da2056d1d1c279f520e058 # v3.8.0
+        id: post-report
+        with:
+          report_paths: /tmp/backstop_data/ci_report/*.xml
+          fail_on_failure: true

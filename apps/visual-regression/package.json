@@ -1,0 +1,18 @@
+{
+  "name": "visual-regression",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "reference": "concurrently --success first --kill-others npm:reference:backstop npm:reference:serve",
+    "reference:backstop": "wait-on http://localhost:8080 && ts-node src/main.ts reference",
+    "reference:serve": "http-server /tmp/reference --port 8080",
+    "check-changed": "concurrently --success first --kill-others npm:check-changed:backstop npm:check-changed:serve",
+    "check-changed:backstop": "wait-on http://localhost:8080 &&  ts-node src/main.ts test",
+    "check-changed:serve": "http-server /tmp/changed --port 8080",
+    "serve-result": "http-server /tmp/backstop_data --port 8080"
+  },
+  "private": true,
+  "nx": {
+    "includedScripts": []
+  }
+}
