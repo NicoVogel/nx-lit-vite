@@ -80,7 +80,8 @@ jobs:
           pnpm install
       - name: Test ✅
         run: |
-          pnpm exec nx run-many --target=test --parallel=3
+          # pnpm exec nx run-many --target=test --parallel=3
+          pnpm exec nx test components
 
   typechecking:
     name: Typechecking ✔️

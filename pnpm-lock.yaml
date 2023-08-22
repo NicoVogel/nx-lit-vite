@@ -64,9 +64,6 @@ devDependencies:
   '@types/jasmine':
     specifier: ^4.3.5
     version: 4.3.5
-  '@types/karma':
-    specifier: ^6.3.4
-    version: 6.3.4
   '@types/node':
     specifier: 18.7.1
     version: 18.7.1
@@ -5738,15 +5735,6 @@ packages:
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
-    dev: true
-
-  /@types/karma@6.3.4:
-    resolution: {integrity: sha512-aefuFcs4e4NAOi1Ue4AP9fR2TQv45NFpdaLXdg+3FxDDndk/4T6LoHRTmKtRVqkwtQPh5Ntc3CxsoOgzldAAfg==}
-    dependencies:
-      '@types/node': 18.7.1
-      log4js: 6.9.1
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@types/lodash@4.14.197:
