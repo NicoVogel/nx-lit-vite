@@ -2,10 +2,8 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../dist/out-tsc/tools",
-    "rootDir": ".",
-    "target": "es5",
-    "types": ["node"],
-    "importHelpers": false
+    "declaration": true,
+    "types": ["node"]
   },
-  "include": ["**/*.ts"]
+  "include": ["scripts/**/*.ts"]
 }

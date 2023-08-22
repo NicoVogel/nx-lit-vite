@@ -5,7 +5,13 @@ import {nxViteTsPaths} from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import {defineConfig} from 'vite';
 import dts from 'vite-plugin-dts';
 
+import packageJson from './package.json';
+import {getViteSharedConfig} from '../../tools/scripts/vite-shared.ts';
+
+const sharedConfig = getViteSharedConfig(packageJson);
+
 export default defineConfig({
+  ...sharedConfig,
   cacheDir: '../../node_modules/.vite/components',
 
   plugins: [

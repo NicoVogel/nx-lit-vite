@@ -25,7 +25,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@myorg/types"],
+            "allow": ["@myorg/types", "tools/scripts/vite-shared.ts"],
             "depConstraints": [
               {
                 "sourceTag": "*",
