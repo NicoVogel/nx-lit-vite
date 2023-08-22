@@ -1,0 +1,47 @@
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.github'
+      - '.devcontainer'
+      - '.vscode'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  deployments: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Deploy Storybook 🎬
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm ⚙️
+        run: |
+          npm i -g pnpm@8.6.12
+      - name: Install 📦
+        run: |
+          pnpm install
+      - name: Build 🏗️
+        run: |
+          pnpm exec nx run build-storybook @nx-lit-vite/source
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/storybook/@nx-lit-vite/source
