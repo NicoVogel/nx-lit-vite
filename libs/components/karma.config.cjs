@@ -2,9 +2,7 @@ const path = require('path');
 const dir = 'libs/components';
 const absoluteModulePath = path.resolve(dir, 'karma.config.mjs');
 
-process.env.NO_PROXY = process.env.no_proxy =
-  'localhost, 0.0.0.0/4201, 0.0.0.0/9876';
-
+// why this is needed: https://github.com/karma-runner/karma/issues/3677
 module.exports = function (config) {
   return import('file:' + absoluteModulePath).then(function (retrievedModule) {
     const defaultExport =
