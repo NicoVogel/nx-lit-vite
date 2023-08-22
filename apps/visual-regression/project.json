@@ -11,7 +11,12 @@
         "command": "pnpm reference",
         "cwd": "apps/visual-regression"
       },
-      "dependsOn": ["^vr-reference"]
+      "dependsOn": ["^vr-reference"],
+      "configurations": {
+        "ci": {
+          "command": "pnpm reference:backstop"
+        }
+      }
     },
     "check-changed": {
       "executor": "nx:run-commands",
@@ -19,7 +24,12 @@
         "command": "pnpm check-changed",
         "cwd": "apps/visual-regression"
       },
-      "dependsOn": ["^vr-changed"]
+      "dependsOn": ["^vr-changed"],
+      "configurations": {
+        "ci": {
+          "command": "pnpm check-changed:backstop"
+        }
+      }
     },
     "serve": {
       "executor": "nx:run-commands",

@@ -13,7 +13,7 @@ export const config = {
     locations: {
       referenceBuild: resolve(basePath, 'reference'),
       referenceServePort: 8080,
-      changedServePort: 8080,
+      changedServePort: 8081,
     },
   },
   backstopCapture: {
