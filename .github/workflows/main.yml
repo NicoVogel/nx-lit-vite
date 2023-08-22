@@ -78,6 +78,7 @@ jobs:
       - name: Install 📦
         run: |
           pnpm install
+          pnpx playwright@1.37.0 install --with-deps webkit
       - name: Test ✅
         run: |
           # pnpm exec nx run-many --target=test --parallel=3
