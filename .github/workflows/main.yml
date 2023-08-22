@@ -62,6 +62,26 @@ jobs:
           --configuration=production \
           --parallel=3
 
+  test:
+    name: Test ✅
+    runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm ⚙️
+        run: |
+          npm i -g pnpm@8.6.12
+      - name: Install 📦
+        run: |
+          pnpm install
+      - name: Test ✅
+        run: |
+          pnpm exec nx run-many --target=test --parallel=3
+
   typechecking:
     name: Typechecking ✔️
     runs-on: ubuntu-latest
