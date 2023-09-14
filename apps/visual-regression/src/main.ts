@@ -1,5 +1,3 @@
-import path from 'path';
-
 import backstop, {Config, Scenario} from 'backstopjs';
 
 import storyJSON from './assets/stories.json';
@@ -69,28 +67,21 @@ function constructScenarios(stories: typeof storyJSON, baseUrl: string) {
   return Object.values(stories.stories)
     .filter(
       story =>
-        // make sure that the `docs` entries are removed
+        // since version 7, the docs are an overview page and as we are only interested in the stories, we filter them out
         story.tags.includes('story') &&
-        // make sure that only stories we want are actually included
+        // remove blacklisted stories (e.g. loading spinner, what ever is not static)
         !config.user.blacklistStories.includes(story.id)
     )
     .map(entry => {
-      const {title, name, id, importPath} = entry;
-      const selector = getCustomElementTagFromFileName(importPath);
-      if (!selector) {
-        console.log(
-          'could not get custom element tag from file name for entry: ',
-          entry
-        );
-        return undefined;
-      }
+      const {title, name, id} = entry;
       return {
         ...config.backstopCapture.scenarioDefault,
+        // backstop waits for this to appear, before taking the screenshot
         readySelector: '#root-inner',
         label: `${title} ${name}`,
         // custom url is required to isolate the storybook component in its own frame
         url: `${baseUrl}/iframe.html?viewMode=docs&id=${id}`,
-        selectors: [selector],
+        selectors: ['#root-inner'],
         misMatchThreshold: config.user.misMatchThresholdInPercentage,
       } satisfies Scenario;
     })
@@ -110,16 +101,6 @@ function constructBackstopConfig(scenarios: Scenario[]): Config {
     },
     scenarios,
   };
-}
-
-function getCustomElementTagFromFileName(importPath: string) {
-  const fileName = path.basename(importPath);
-  if (!fileName.endsWith('.stories.mdx')) {
-    // is not a mdx file
-    return undefined;
-  }
-
-  return fileName.split('.stories.mdx')[0];
 }
 
 function defined<T>(x: T | undefined): x is T {

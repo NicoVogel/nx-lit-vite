@@ -4,15 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize]
 
-concurrency:
-  group: Visual Regression-${{ github.event.number }}
-  cancel-in-progress: true
-
-env:
-  report_filename: backstop-report-pr-${{ github.event.number }}-run-${{ github.run_id }}.tar.gz
-
 permissions:
-  pull-requests: write # commenting
   contents: read
   checks: write # junit-report
 
@@ -21,10 +13,12 @@ jobs:
     name: Build target and reference and test
     runs-on: ubuntu-latest
     env:
+      # BackstopJS installs puppeteer and it wants to install chrome.
+      # But we already use playwright for that, so we don't need it.
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
     steps:
       - name: Checkout Reference 🛎️
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        uses: actions/checkout@v3.5.3
         with:
           fetch-depth: 0
           ref: ${{ github.base_ref }}
@@ -35,7 +29,7 @@ jobs:
         run: |
           pnpm install
       - name: Host Reference
-        uses: Eun/http-server-action@9f8504206c8dd903271f7db90554473466199804 # v1.0.10
+        uses: Eun/http-server-action@v1.0.10
         with:
           directory: /tmp/reference
           port: 8080
@@ -43,7 +37,7 @@ jobs:
           index-files: |
             ["index.html"]
       - name: Host Changed
-        uses: Eun/http-server-action@9f8504206c8dd903271f7db90554473466199804 # v1.0.10
+        uses: Eun/http-server-action@v1.0.10
         with:
           directory: /tmp/changed
           port: 8081
@@ -54,7 +48,7 @@ jobs:
         run: |
           pnpm exec nx run visual-regression:reference --configuration=ci
       - name: Checkout Target 🛎️
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        uses: actions/checkout@v3.5.3
         with:
           ref: ${{ github.head_ref }}
       - name: Install for Target📦
@@ -64,7 +58,7 @@ jobs:
         run: |
           pnpm exec nx run visual-regression:check-changed --configuration=ci
       - name: Post report
-        uses: mikepenz/action-junit-report@150e2f992e4fad1379da2056d1d1c279f520e058 # v3.8.0
+        uses: mikepenz/action-junit-report@v3.8.0
         id: post-report
         with:
           report_paths: /tmp/backstop_data/ci_report/*.xml
